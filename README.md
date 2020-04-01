@@ -6,7 +6,7 @@
 
 2. if you want ssh enabled, create a ssh file on the sdcard boot partition.
 
-3. Copy each folder to rootf partition of the good Raspberry Pi sdcard.
+3. Copy each folder to the rootf partition of the good Raspberry Pi sdcard.
 4. Add `sudo /bin/bash /<CLIENT | CENTRAL>/init.sh` to /rootf/etc/rc.local file on each sdcard.
 5. Start first the CENTRAL Raspberry Pi and wait 2 minutes untill reboot or check the script status by connecting a led on GPIO17 pin (the led is on when the script is running and is off when the script end or is not yet begined).
 6. Start the second Raspberry Pi and wait 1 minutes untill reboot or check the script status by connecting a led on GPIO17 pin (the led is on when the script is running and is off when the script end or is not yet begined).
@@ -56,7 +56,7 @@
 1. Show DHCP lease : `cat /var/lib/misc/dnsmasq.leases`
 2. Get default gateway : `ip route | grep default | grep -Eo "([0-9]{1,3}[\.]){3}[0-9]{1,3}`
 3. Show connected device to hostapd : `arp -a`
-4. send command test : `nc -u 10.42.0.1 85`
+4. To send a command : `nc -u 10.42.0.1 85`
 5. command structure : `{"command": "set", "key": "id", "value": 95}`
 6. GPIO control command : `{"command": "set", "key": "pins", "value": [{"type":0, "number": 17, "value": 1}, {"type":0, "number": 18, "value": 1}]}`
 7. Send one command : `echo -n '{"command": "set", "key": "pins", "value": [{"type":0, "number": 17, "value": 1}, {"type":0, "number": 18, "value": 1}]}' | nc -u 10.0.0.135 85 -w1`
